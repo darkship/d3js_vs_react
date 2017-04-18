@@ -1,0 +1,1 @@
+window.currentSpeed = 0
