@@ -3,17 +3,9 @@ import './tmpl.html'
 import d3 from 'd3'
 import {
   arcDefault,
-  matrix,
-  radianSpeedCoef,
   requestAnimationFrame,
   svgDefault} from '../config.js'
-
-import Arrow from '../models/arrow'
-import data from '../data'
-
-const arrow = new Arrow()
-arrow.build()
-
+import {data, arrow} from '../data'
 Template.d3.onRendered(() => {
   try {
     const face = d3.select('#d3')
@@ -69,13 +61,9 @@ Template.d3.onRendered(() => {
           })
 
         d3.select('#ana-speed')
-          .transition()
+          // .transition()
           .attr('transform', () => {
-            const rads = (window.currentSpeed * radianSpeedCoef) +
-              arrow.position
-            const transformMatrix = matrix(rads)
-              .toString()
-            return `matrix(${transformMatrix})`
+            return arrow.updateTransform(window.currentSpeed)
           })
         lastSpeed = window.currentSpeed
       }

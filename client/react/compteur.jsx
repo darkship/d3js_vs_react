@@ -1,6 +1,10 @@
 import React from 'react'
-import RectList from './rect_list'
 import {svgDefault, arcDefault} from '../config.js'
+import Rect from './rect'
+import Label from './label'
+import {data} from '../data'
+import NumSpeed from './num'
+import AnaSpeed from './arrow'
 
 /**
  * Compteur
@@ -14,7 +18,12 @@ class Compteur extends React.Component {
     const transform = `translate(${arcDefault.outerRadius},
       ${arcDefault.outerRadius})`
     return (<svg width={svgDefault.width} height={svgDefault.height}>
-        <RectList transform={transform}/>
+      <g transform={transform}>
+        {data.map((d, id) => (<Rect key={id} {...d.rect}/>))}
+        {data.map((d, id) => (<Label key={id} {...d.label}/>))}
+        <NumSpeed/>
+        <AnaSpeed/>
+      </g>
     </svg>)
   }
 }

@@ -1,4 +1,4 @@
-import {arcDefault, rectangleDefault, matrix} from '../config.js'
+import {arcDefault, rectangleDefault, matrix, radianSpeedCoef} from '../config.js'
 
 /**
  * Arrow
@@ -65,6 +65,16 @@ class Arrow {
     return arcDefault.outerRadius -
     rectangleDefault.height / 1.5 -
     rectangleDefault.marginArcBorder / 2
+  }
+  /**
+   * updateTransform
+   * @param {number} currentSpeed - speed
+   * @return {string} - matrix transformation
+   */
+  updateTransform(currentSpeed){
+    const rads = (currentSpeed * radianSpeedCoef) + this.position
+    const transformMatrix = matrix(rads).toString()
+    return `matrix(${transformMatrix})`
   }
 }
 

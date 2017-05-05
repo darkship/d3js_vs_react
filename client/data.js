@@ -2,7 +2,7 @@ import {arcDefault, speeds, radianStep} from './config'
 
 import Rect from './models/rect'
 import Label from './models/label'
-
+import Arrow from './models/arrow'
 
 const data = speeds.map((speed, idx) => {
   const radian = radianStep * idx + arcDefault.startAngle + Math.PI
@@ -11,8 +11,13 @@ const data = speeds.map((speed, idx) => {
 
   const label = new Label({radian, speed})
   label.build()
-
   return {radian, speed, rect, label}
 })
 
-export default data
+const arrow = new Arrow()
+arrow.build()
+
+export {
+  arrow,
+  data,
+}
