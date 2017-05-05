@@ -1,5 +1,5 @@
 import React from 'react'
-import {requestAnimationFrame,} from '../config.js'
+import {requestAnimationFrame} from '../config.js'
 import {arrow} from '../data.js'
 /**
  * Compteur
@@ -16,6 +16,13 @@ class Arrow extends React.Component {
       transform: arrow.transform,
     }
     requestAnimationFrame(() => (this.update()))
+  }
+
+  /**
+   * componentDidMount
+   */
+  componentDidMount() {
+    this.update()
   }
 
   /**

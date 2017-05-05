@@ -6,6 +6,7 @@ import {requestAnimationFrame} from '../config.js'
 class Num extends React.Component {
   /**
    * constructor
+   * @param {object} props
    */
   constructor(props) {
     super(props)
@@ -14,16 +15,32 @@ class Num extends React.Component {
       speed: '00',
     }
   }
-  componentDidMount(){
+
+  /**
+   * componentDidMount
+   */
+  componentDidMount() {
     this.update()
   }
-  update(){
-    this.setState({ speed: window.currentSpeed || '00'})
+
+  /**
+   * updates numeric speed
+   */
+  update() {
+    this.setState({speed: window.currentSpeed || '00'})
     requestAnimationFrame(() => {
       this.update()
     })
   }
-  setState
+  /**
+   * shouldComponentUpdate
+   * @param {object} nextProps
+   * @param {object} nextState
+   * @return {boolean} - true if transform changed
+   */
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.state.speed !== nextState.speed
+  }
   /**
    * Renders a "Compteur"
    * @return {XML}

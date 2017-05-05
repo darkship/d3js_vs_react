@@ -22,7 +22,7 @@ class Compteur {
   /**
    * Constructor
    * @param {String] containerSelector - css selector
-   * @param {object} - config data
+   * @param {object} options - config data
    */
   constructor(containerSelector, {svg, arc, rectangle}) {
     this.containerSelector = containerSelector

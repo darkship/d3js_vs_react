@@ -21,6 +21,7 @@
     "indent": ["error", 2],
     "no-console": "off",
     "react/jsx-uses-react": 1,
-    "react/jsx-uses-vars": 1
+    "react/jsx-uses-vars": 1,
+    "no-invalid-this": "off"
   }
 }
