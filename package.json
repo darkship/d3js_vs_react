@@ -13,7 +13,7 @@
     "meteor-node-stubs": "~0.2.0",
     "react": "^15.4.1",
     "react-dom": "^16.0.1",
-    "snyk": "^1.192.3"
+    "snyk": "^1.316.2"
   },
   "devDependencies": {
     "eslint": "^3.12.2",
